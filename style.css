@@ -1,0 +1,80 @@
+/* Basic styles for all screen sizes */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header, .content, .signup, .features {
+    padding: 20px;
+    border: 1px solid #ddd;
+    margin: 10px 0;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+.feature {
+    background-color: lightblue;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Mobile view (up to 600px) */
+@media (max-width: 600px) {
+    .container {
+        width: 100%;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+
+    .signup {
+        order: 2;
+    }
+
+    .features {
+        order: 3;
+    }
+}
+
+/* Tablet view (601px to 900px) */
+@media (min-width: 601px) and (max-width: 900px) {
+    .features {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .signup {
+        grid-column: span 2;
+    }
+}
+
+/* Desktop view (above 900px) */
+@media (min-width: 901px) {
+    .features {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .content {
+        order: 3;
+    }
+
+    .signup {
+        order: 2;
+    }
+}
